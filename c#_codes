@@ -1,0 +1,44 @@
+using System;
+class Program
+{
+    public static void Main()
+    {
+        int l = 0, r = 0;
+        String s = Console.ReadLine();
+        char[] c1 = s.ToCharArray(); 
+        Stack<char> sta = new Stack<char>();
+        for(int i = 0; i < c1.Length; i++)
+        {
+            sta.Push(c1[i]);
+        }
+        if ((sta.Count) % 2 == 0)
+        {
+            int n = sta.Count;
+            for (int k = -1; k < n-1; k++)
+            {  
+                char v=sta.Pop();
+               /* Console.WriteLine(v);*/
+                if (v.Equals('}'))
+                {
+                    r++;
+                }
+                else if (v.Equals('{'))
+                {
+                    l++;
+                }
+            }
+            if (r==l)
+            {
+                Console.WriteLine("Balanced");
+            }
+            else
+            {
+                Console.WriteLine("Not Balanced");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Not balanced");
+        }
+        }
+}
